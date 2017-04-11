@@ -1,0 +1,16 @@
+{
+  "name": "apirestvates",
+  "version": "1.0.0",
+  "description": "api rest simple get",
+  "main": "bin/www",
+  "scripts": {
+    "start": "node bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cristian Ovando",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2"
+  }
+}

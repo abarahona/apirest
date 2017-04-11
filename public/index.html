@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="page-header">
+      <h1>Api REST <small>simple get clients</small></h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+        
+          <div><input type="text" class="form-control" placeholder="Ej: 2,0,6,3,1,6,3,1"></div>
+          <button type="button" class="btn btn-success" data-uri="/api/detectCycle?arr=" class="list-group-item">/api/detectCycle</button>
+        </div>
+        <div class="col-md-8">
+          <pre></pre>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+      let buttons = document.querySelectorAll('button');
+      for(var x=0; x<buttons.length; x++)
+      {
+        buttons[x].addEventListener("click", obtenerDatos);
+      }
+      
+      function obtenerDatos(event) {
+        
+        fetch(event.target.dataset.uri+ document.querySelector('input').value)
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(data) {
+            document.querySelector('pre').innerHTML = JSON.stringify(data,null,4);
+            
+          });
+      }
+    </script>
+  </body>
+</html>
